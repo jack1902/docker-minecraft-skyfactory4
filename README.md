@@ -7,8 +7,8 @@ You can [mail me](mailto:tim@chaubet.be) if there's a newer version and I don't 
 Sourcefiles from here: https://www.curseforge.com/minecraft/modpacks/skyfactory-4/files<br>
 The file-redirect currently leads to https://media.forgecdn.net/files/3012/800/SkyFactory-4_Server_4.2.2.zip
 
-my git repo: https://github.com/TrueOsiris/docker-minecraft-skyfactory4
-    
+my git repo: https://github.com/jack1902/docker-minecraft-skyfactory4
+
 This is based on several other repos. Credits to these fellas! <br>
 - itzg/minecraft-server<br>
 - jaysonsantos/docker-minecraft-ftb-skyfactory3
@@ -16,9 +16,9 @@ This is based on several other repos. Credits to these fellas! <br>
 To simply use the latest stable version, run:
 
     docker run -d -p 25565:25565 trueosiris/minecraft-skyfactory4
-    
-To use a specific version, use 
-  
+
+To use a specific version, use
+
     docker run -d -p 25565:25565 trueosiris/minecraft-skyfactory4:4.2.2
 
 where the default server port, 25565, will be exposed on your host machine. If you want to serve up multiple Minecraft servers or just use an alternate port, change the host-side port mapping such as:
@@ -61,3 +61,19 @@ If you leave it off, the last used or default message will be used.
 The Java memory limit can be adjusted using the `JVM_OPTS` environment variable, where the default is the setting shown in the example (max and min at 2048 MB):
 
     docker run -e 'JVM_OPTS=-Xmx2048M -Xms2048M' ...
+
+
+## Docker Compose
+
+To run with `docker-compose` simply clone this repo and then run the following commands:
+
+```bash
+# Setup env variables
+cp .env.example .env
+
+# build
+docker-compose build
+
+# run
+docker-compose up -d skyfactory
+```
